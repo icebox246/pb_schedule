@@ -1,9 +1,10 @@
 import {XMLParser} from 'fast-xml-parser';
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 
 export async function handler() {
-    const xml = await (await fetch('https://www.w3schools.com/xml/note.xml'))
+    const xml = (await axios.get('https://www.w3schools.com/xml/note.xml')).data;
+	console.log(xml);
     const parser = new XMLParser();
     const json = parser.parse(xml);
 

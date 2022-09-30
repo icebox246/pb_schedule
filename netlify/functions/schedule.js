@@ -1,6 +1,6 @@
 // import {readFileSync} from 'fs';
 import {XMLParser} from 'fast-xml-parser';
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 function convertRooms(rooms) {
     const o = {};
@@ -56,7 +56,7 @@ function convertInstitutions(institutions) {
 
 export async function handler(event) {
     // const xmlBuffer = readFileSync('plan.xml');
-	const xmlBuffer = await (await fetch("https://degra.wi.pb.edu.pl/rozklady/webservices.php")).text();
+	const xmlBuffer = (await axios.get("https://degra.wi.pb.edu.pl/rozklady/webservices.php")).data;
 
     const parser = new XMLParser();
     const jObj = parser.parse(xmlBuffer).conversation;
