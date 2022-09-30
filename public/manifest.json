@@ -1,0 +1,27 @@
+{
+  "short_name": "pb_schedule",
+  "name": "PB Schedule",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "description": "Schedule app for PB"
+}
