@@ -1,5 +1,6 @@
 const {readFileSync} = require('fs');
 const {XMLParser} = require('fast-xml-parser');
+const {fetch} = require('node-fetch')
 
 function convertRooms(rooms) {
     const o = {};
