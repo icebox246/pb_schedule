@@ -1,6 +1,6 @@
-const {readFileSync} = require('fs');
-const {XMLParser} = require('fast-xml-parser');
-const {fetch} = require('node-fetch')
+// import {readFileSync} from 'fs';
+import {XMLParser} from 'fast-xml-parser';
+import fetch from 'node-fetch';
 
 function convertRooms(rooms) {
     const o = {};
@@ -54,7 +54,7 @@ function convertInstitutions(institutions) {
     return o;
 }
 
-exports.handler = async (event) => {
+export async function handler(event) {
     // const xmlBuffer = readFileSync('plan.xml');
 	const xmlBuffer = await (await fetch("https://degra.wi.pb.edu.pl/rozklady/webservices.php")).text();
 
