@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             days: [{n: 1, s: "monday"},{n: 2, s: "tuesday"},{n: 3, s: "wednesday"},{n: 4, s: "thursday"},{n: 5, s: "friday"}],
-			currentDay: (new Date()).getDay()
+			currentDay: Math.max(Math.min(5,(new Date()).getDay()),1)
         }
     },
     methods: {
