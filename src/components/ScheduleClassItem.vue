@@ -52,6 +52,9 @@ p {
 
 .W {
     background: aquamarine;
+}
+
+.W * {
     color: black;
 }
 
@@ -60,8 +63,16 @@ p {
    color: black;
 }
 
+.Ćw * {
+    color: black;
+}
+
 .Ps {
    background: PaleTurquoise; 
    color: black;
+}
+
+.Ps * {
+    color: black;
 }
 </style>

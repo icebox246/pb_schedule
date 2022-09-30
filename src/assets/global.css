@@ -3,11 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 	font-family: monospace;
+	color:white;
 	font-size: 9pt;
 }
 
 :root {
     --bg-color: #121212;
+	color-scheme: light;
 }
 
 html {
