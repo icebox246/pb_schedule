@@ -1,14 +1,28 @@
 <script>
 import {scheduleStore, getSubjectById, removeGroup} from '../global';
+import {getFriendlyKindName} from '../constants';
 export default {
     computed: {
         groupList() {
-            return scheduleStore.groups;
+			const arr = [...scheduleStore.groups];
+			arr.sort (
+				(a,b) => {
+					if (a.subjectId < b.subjectId) {
+						return -1;
+					} else if(a.subjectId == b.subjectId) {
+						return a.kind > b.kind ? -1 : 1;
+					} else {
+						return 1;
+					}
+				}
+			);
+			return arr;
         }
     },
     methods: {
         getSubjectById,
-        removeGroup
+        removeGroup,
+		getFriendlyKindName
     }
 }
 </script>
@@ -16,7 +30,7 @@ export default {
 <template>
     <ul>
         <li v-for="group of groupList">
-            <p><button @click="removeGroup(group)">-</button>{{ getSubjectById(group.subjectId).name }} - {{ group.kind }} - {{ group.group }}</p>
+            <p><button @click="removeGroup(group)">-</button>[{{ getSubjectById(group.subjectId).short }}] {{ getSubjectById(group.subjectId).name }} - ({{ getFriendlyKindName(group.kind) }} g. {{ group.group }})</p>
         </li>
     </ul>
 </template>
