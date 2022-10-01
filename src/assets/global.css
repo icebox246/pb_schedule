@@ -9,7 +9,7 @@
 
 :root {
     --bg-color: #121212;
-	color-scheme: light;
+	color-scheme: dark;
 }
 
 html {
@@ -18,4 +18,7 @@ html {
 
 button, input, select {
 	font-size: 1rem;
+	color:white;
+	border: 1px solid white;
+	background-color: var(--bg-color);
 }
