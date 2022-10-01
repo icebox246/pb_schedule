@@ -38,9 +38,9 @@ export default {
     <!-- <p>Subject: {{ subjectName }}, Kind: {{ kind }}, Group: {{ group }}</p> -->
     <SubjectSelection @change="e => setSubjectId(e.value)" />
     <div class="horz">
-        <KindSelection @change="e => setKind(e.value)" />
         <input type="number" class="group" v-model="group" />
         <button @click="handleAdd">+</button>
+        <KindSelection @change="e => setKind(e.value)" />
     </div>
 </template>
 
