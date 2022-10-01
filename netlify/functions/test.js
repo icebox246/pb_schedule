@@ -4,7 +4,6 @@ import axios from 'axios';
 
 export async function handler() {
     const xml = (await axios.get('https://www.w3schools.com/xml/note.xml')).data;
-	console.log(xml);
     const parser = new XMLParser();
     const json = parser.parse(xml);
 
