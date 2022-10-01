@@ -41,13 +41,14 @@ export default {
             <SemesterSelection />
 			<h3>subjects:</h3>
             <GroupList />
-			<h4>add subject:</h4>
+			<h4>data management:</h4>
 			<div>
 				<button class="refresh" @click="refetchData">refresh data</button>
 				<span>last update: {{ lastUpdate }}</span>
 			</div>
 			<button class="export" @click="exportSettingsToClipboard">export settings</button>
 			<button class="import" @click="importSettingsByPrompt">import settings</button>
+			<h4>add subject:</h4>
             <GroupAddingPopup />
         </div>
 
