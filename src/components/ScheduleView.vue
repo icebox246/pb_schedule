@@ -1,5 +1,6 @@
 <script>
 import ScheduleDayView from './ScheduleDayView.vue';
+import {SwipeController} from '../swipe.js';
 
 export default {
     components: {ScheduleDayView},
@@ -16,14 +17,32 @@ export default {
         },
 		changeDay(delta) {
 			this.currentDay = (this.currentDay - 1 + delta + 5) % 5 + 1;
+		},
+		handleSwipe(e) {
+			if(e.detail.direction == "left")
+				this.changeDay(1);
+			else if (e.detail.direction == "right")
+				this.changeDay(-1);
+		},
+		dotsForDay(day) {
+			let o = "  ";
+			for(let i = 1; i <= 5; i++) {
+				o += i == day ? "#" : '.'
+				o += "  ";
+			}
+			return o;
 		}
     },
+	mounted() {
+		new SwipeController(this.$refs.container);
+	}
 }
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" ref="container" @swipe="handleSwipe">
         <div :class="`day-container ${day.n == currentDay ? 'current' : ''}`" v-for="day of days">
+			<h3 class="dots">{{ dotsForDay(day.n) }}</h3>
             <h2>{{ day.s }}</h2>
             <ScheduleDayView :classes="classesFilteredByDay(day.n)" />
         </div>
@@ -54,6 +73,12 @@ h2 {
 .day-container {
     flex:1;
 }
+
+.dots {
+	display: none;
+	text-align: center;
+}
+
 nav {
 	display: none;
 	height: 3rem;
@@ -87,6 +112,10 @@ nav button:hover {
 
 	nav {
 		display: flex;
+	}
+
+	.dots {
+		display: block;
 	}
 }
 
