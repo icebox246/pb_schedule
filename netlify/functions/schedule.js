@@ -11,13 +11,24 @@ function convertRooms(rooms) {
     return o;
 }
 
-function convertTeachers(teachers) {
+function convertTitles(titles) {
+    const o = {};
+    for (let title of titles) {
+        if (o[title.ID]) throw 'title id conflict'
+            o[title.ID] = title.NAZWA;
+    }
+    return o;
+}
+
+function convertTeachers(teachers, titles) {
     const o = {};
     for (let teacher of teachers) {
         if (o[teacher.ID]) throw 'teacher id conflict'
             o[teacher.ID] = {
                 name: teacher.IMIE,
+                nsh: teacher.IM_SK,
                 surname: teacher.NAZW,
+				title: titles[teacher.ID_TYT],
             }
     }
     return o;
@@ -63,8 +74,10 @@ export async function handler(event) {
 
     const result = {};
 
+	const titles = convertTitles(jObj.tabela_tytuly);
+
     result.rooms = convertRooms(jObj.tabela_sale);
-    result.teachers = convertTeachers(jObj.tabela_nauczyciele);
+    result.teachers = convertTeachers(jObj.tabela_nauczyciele, titles);
     result.subjects = convertSubjects(jObj.tabela_przedmioty);
     result.classes = convertClassses(jObj.tabela_rozklad);
     result.institutions = convertInstitutions(jObj.tabela_studia);

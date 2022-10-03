@@ -32,7 +32,7 @@ export default {
     <div :class="`container ${item.kind}`" ref="container">
         <p><b>{{ begin }} - {{ end }}</b></p>
         <p>{{ subject.short }} ({{ kind }})</p>
-        <p><b>{{ room }}</b> - {{ teacher.surname }} {{ teacher.name }}</p>
+        <p><b>{{ room }}</b> - {{ teacher.title }} {{ teacher.nsh }} {{ teacher.surname }} </p>
     </div>
 </template>
 
