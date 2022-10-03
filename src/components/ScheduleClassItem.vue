@@ -48,6 +48,7 @@ export default {
 
 p {
     overflow: ellipsis;
+	font-size: 0.85;
 }
 
 .W {
