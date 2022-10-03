@@ -4,6 +4,8 @@ Simple app for viewing personal schedule in PB, created using [Vue.js](https://v
 
 It relies mostly on computing on front-end side, thus can be easily used offline.
 
+Application is available here: [https://iceboxes-pb-schedule.netlify.app/](https://iceboxes-pb-schedule.netlify.app/).
+
 ## Running
 
 ```console
