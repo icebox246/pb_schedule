@@ -1,5 +1,7 @@
 # pb\_schedule
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f5b793d7-8fd7-4daf-8509-c348b96ee7e5/deploy-status)](https://app.netlify.com/sites/iceboxes-pb-schedule/deploys)
+
 Simple app for viewing personal schedule in PB, created using [Vue.js](https://vuejs.org/) and [Netlify Functions](https://www.netlify.com/products/functions/).
 
 It relies mostly on computing on front-end side, thus can be easily used offline.
