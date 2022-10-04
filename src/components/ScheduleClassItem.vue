@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-    <div :class="`container ${item.kind}`" ref="container">
+    <div :class="`container ${item.kind} ${item.wm == 1 ? 'biweekly1' : (item.wm == 2 ? 'biweekly2' : '')}`" ref="container">
         <p><b>{{ begin }} - {{ end }}</b></p>
 		<p>
 			<span>{{ subject.short }} ({{ kind }})</span> <span>
@@ -41,7 +41,9 @@ export default {
 
 <style scoped>
 .container {
-    background: dimgray;
+	--biweekly-bg: none;
+	--type-color: dimgray;
+    background-image: var(--biweekly-bg), linear-gradient(var(--type-color),var(--type-color));
     color: white;
     margin:3px;
     border-radius: 3px;
@@ -54,38 +56,46 @@ p {
 	font-size: 0.85;
 }
 
-.W {
-    background: aquamarine;
+.container.W {
+    --type-color: aquamarine;
 }
 
-.W * {
+.container.W * {
     color: black;
 }
 
-.Ćw {
-   background: LightGoldenRodYellow; 
+.container.Ćw {
+   --type-color: LightGoldenRodYellow; 
    color: black;
 }
 
-.Ćw * {
+.container.Ćw * {
     color: black;
 }
 
-.Ps {
-   background: PaleTurquoise; 
+.container.Ps {
+   --type-color: PaleTurquoise; 
    color: black;
 }
 
-.Ps * {
+.container.Ps * {
     color: black;
 }
 
-.Wf {
-   background: pink; 
+.container.Wf {
+   --type-color: pink; 
    color: black;
 }
 
-.Wf * {
+.container.Wf * {
     color: black;
+}
+
+.container.biweekly1 {
+	--biweekly-bg: repeating-linear-gradient(-45deg, rgba(200,200,200, 0.5), rgba(200,200,200, 0.5) 20px, transparent 20px, transparent 40px);
+}
+
+.container.biweekly2 {
+	--biweekly-bg: repeating-linear-gradient(45deg, rgba(200,200,200, 0.5), rgba(200,200,200, 0.5) 20px, transparent 20px, transparent 40px);
 }
 </style>

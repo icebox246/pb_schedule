@@ -51,7 +51,7 @@ function convertClassses(classes) {
         return {
             day: cl.DZIEN, st: cl.GODZ, dur: cl.ILOSC, tid: cl.ID_NAUCZ,
                 rid: cl.ID_SALA, sid: cl.ID_PRZ, iid: cl.ID_ST, kind: cl.RODZ,
-                sem: cl.SEM, group: cl.GRUPA
+                sem: cl.SEM, group: cl.GRUPA, wm: cl.TYG
         }
     });
 }
