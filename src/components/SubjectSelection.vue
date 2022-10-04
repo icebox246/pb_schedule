@@ -49,7 +49,6 @@ export default {
 <style scoped>
 ul {
     list-style: none;
-    max-height: calc(max(10cm, 50vh));
     overflow: auto;
 }
 
@@ -68,7 +67,7 @@ p {
 }
 
 .container {
-    width: calc(min(50vw,10cm));
+	
 }
 
 .search {
