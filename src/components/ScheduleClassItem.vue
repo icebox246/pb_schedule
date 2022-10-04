@@ -76,4 +76,13 @@ p {
 .Ps * {
     color: black;
 }
+
+.Wf {
+   background: pink; 
+   color: black;
+}
+
+.Wf * {
+    color: black;
+}
 </style>

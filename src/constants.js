@@ -30,7 +30,8 @@ const friendlyKindNames = {
     'Ps': 'p. spec.',  // 'pracownia specjalistyczna',
     'P': 'projekt',
     'L': 'laboratorium',
-    'S': 'seminarium'
+    'S': 'seminarium',
+    'Wf': '?Wf?',
 }
 
 export function getFriendlyKindName(k) {

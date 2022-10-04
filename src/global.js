@@ -31,6 +31,10 @@ export function refilterClasses() {
                             c =>
                                 (g.subjectId == c.sid && g.group == c.group &&
                                  g.kind == c.kind)))
+					.concat(scheduleStore.data.classes.filter(
+						c =>
+							(c.kind == 'Wf')
+					))
                     .filter(
                         c =>
                             (c.rid && c.sid && c.tid &&
