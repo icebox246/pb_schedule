@@ -32,6 +32,7 @@ export default {
         <li v-for="group of groupList">
             <p><button @click="removeGroup(group)">-</button>[{{ getSubjectById(group.subjectId).short }}] {{ getSubjectById(group.subjectId).name }} - ({{ getFriendlyKindName(group.kind) }} g. {{ group.group }})</p>
         </li>
+		<div class="bottom-padding" />
     </ul>
 </template>
 
@@ -44,5 +45,14 @@ button {
 	outline: none;
 	border: none;
 	cursor: pointer;
+	color: orangered;
+	font-weight: bold;
+}
+.bottom-padding {
+	height: 100px;
+}
+ul {
+	max-height: 40vh;
+	overflow-y: scroll;
 }
 </style>
