@@ -72,12 +72,13 @@ export async function handler(event) {
     const parser = new XMLParser();
     const jObj = parser.parse(xmlBuffer).conversation;
 
-    if (!('tabela_tytuly' in jObj
-        && 'tabela_sale' in jObj
-        && 'tabela_nauczyciele' in jObj
-        && 'tabela_przedmioty' in jObj
-        && 'tabela_rozklad' in jObj
-        && 'tabela_studia' in jObj)) {
+    if (!jObj
+        || !('tabela_tytuly' in jObj
+            && 'tabela_sale' in jObj
+            && 'tabela_nauczyciele' in jObj
+            && 'tabela_przedmioty' in jObj
+            && 'tabela_rozklad' in jObj
+            && 'tabela_studia' in jObj)) {
         return {
             statusCode: 500,
             body: 'Failed to fetch data from remote server'
