@@ -1,4 +1,4 @@
-import {reactive} from 'vue';
+import { reactive } from 'vue';
 
 export const scheduleStore = reactive({
     data: {},
@@ -26,20 +26,20 @@ export function getRoomById(id) {
 
 export function refilterClasses() {
     const acc = scheduleStore.groups
-                    .flatMap(
-                        g => scheduleStore.data.classes.filter(
-                            c =>
-                                (g.subjectId == c.sid && g.group == c.group &&
-                                 g.kind == c.kind)))
-					.concat(scheduleStore.data.classes.filter(
-						c =>
-							(c.kind == 'Wf')
-					))
-                    .filter(
-                        c =>
-                            (c.rid && c.sid && c.tid &&
-                             c.iid == scheduleStore.institution &&
-                             c.sem == scheduleStore.semester));
+        .flatMap(
+            g => scheduleStore.data.classes.filter(
+                c =>
+                (g.subjectId == c.sid && g.group == c.group &&
+                    g.kind == c.kind)))
+        .concat(scheduleStore.data.classes.filter(
+            c =>
+                (c.kind == 'Wf')
+        ))
+        .filter(
+            c =>
+            (c.rid && c.sid && c.tid &&
+                c.iid == scheduleStore.institution &&
+                c.sem == scheduleStore.semester));
 
     const deduped =
         [...new Set(acc.map(c => JSON.stringify(c)))].map(c => JSON.parse(c));
@@ -54,7 +54,7 @@ export function saveGroups() {
 }
 
 export function addGroup(subjectId, kind, group) {
-    scheduleStore.groups.push({subjectId, kind, group});
+    scheduleStore.groups.push({ subjectId, kind, group });
     console.log('group added', scheduleStore.groups);
     refilterClasses();
 
@@ -83,8 +83,17 @@ export function setSemester(n) {
 
 export async function refetchData() {
     console.log('Fetching schedule data')
-    scheduleStore.data =
-        await (await fetch('/.netlify/functions/schedule')).json();
+
+    let data;
+    try {
+        data = await (await fetch('/.netlify/functions/schedule')).json();
+    } catch (e) {
+        console.error("Failed to fetch schedule data");
+        alert("Failed to fetch schedule data");
+        return;
+    }
+
+    scheduleStore.data = data;
     localStorage.cachedData = JSON.stringify(scheduleStore.data);
     localStorage.lastUpdate = scheduleStore.lastUpdate =
         (new Date()).toLocaleString('pl');
