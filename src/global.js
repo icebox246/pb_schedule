@@ -25,6 +25,8 @@ export function getRoomById(id) {
 }
 
 export function refilterClasses() {
+    if (!scheduleStore.data.classes) return;
+
     const acc = scheduleStore.groups
         .flatMap(
             g => scheduleStore.data.classes.filter(
@@ -89,7 +91,7 @@ export async function refetchData() {
         data = await (await fetch('/.netlify/functions/schedule')).json();
     } catch (e) {
         console.error("Failed to fetch schedule data");
-        alert("Failed to fetch schedule data");
+        // alert("Failed to fetch schedule data");
         return;
     }
 

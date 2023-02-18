@@ -23,6 +23,7 @@ export default {
     computed: {
         filteredClasses() { return scheduleStore.filteredClasses; },
 		lastUpdate() { return scheduleStore.lastUpdate },
+		hasData() { return !!scheduleStore.data.classes },
     },
     methods: {
 		refetchData,
@@ -33,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main v-if="hasData">
         <nav @click="showLeftPanel = !showLeftPanel">schedule</nav>
         <div :class="`left-panel ${showLeftPanel ? 'show' : ''}`">
 			<h3>institution & semester:</h3>
@@ -54,9 +55,24 @@ export default {
 
         <ScheduleView :classes="filteredClasses" />
     </main>
+
+    <main v-else>
+        <h1>No data fetched!</h1>
+        <h2>Reload the page</h2>
+    </main>
 </template>
 
 <style scoped>
+
+h1 {
+    font-size: 3em;
+    text-align:center;
+    padding-top: 2em;
+}
+h2 {
+    font-size: 2em;
+    text-align:center;
+}
 
 nav {
     padding: 1rem;
