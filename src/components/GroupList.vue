@@ -1,28 +1,28 @@
 <script>
-import {scheduleStore, getSubjectById, removeGroup} from '../global';
-import {getFriendlyKindName} from '../constants';
+import { scheduleStore, getSubjectById, removeGroup } from '../global';
+import { getFriendlyKindName } from '../constants';
 export default {
     computed: {
         groupList() {
-			const arr = [...scheduleStore.groups];
-			arr.sort (
-				(a,b) => {
-					if (a.subjectId < b.subjectId) {
-						return -1;
-					} else if(a.subjectId == b.subjectId) {
-						return a.kind > b.kind ? -1 : 1;
-					} else {
-						return 1;
-					}
-				}
-			);
-			return arr;
+            const arr = [...scheduleStore.groups];
+            arr.sort(
+                (a, b) => {
+                    if (a.subjectId < b.subjectId) {
+                        return -1;
+                    } else if (a.subjectId == b.subjectId) {
+                        return a.kind > b.kind ? -1 : 1;
+                    } else {
+                        return 1;
+                    }
+                }
+            );
+            return arr;
         }
     },
     methods: {
         getSubjectById,
         removeGroup,
-		getFriendlyKindName
+        getFriendlyKindName
     }
 }
 </script>
@@ -30,9 +30,10 @@ export default {
 <template>
     <ul>
         <li v-for="group of groupList">
-            <p><button @click="removeGroup(group)">-</button>[{{ getSubjectById(group.subjectId).short }}] {{ getSubjectById(group.subjectId).name }} - ({{ getFriendlyKindName(group.kind) }} g. {{ group.group }})</p>
+            <p><button @click="removeGroup(group)">-</button>[{{ getSubjectById(group.subjectId).short }}] {{
+                getSubjectById(group.subjectId).name }} - ({{ getFriendlyKindName(group.kind) }} g. {{ group.group }})</p>
         </li>
-		<div class="bottom-padding" />
+        <div class="bottom-padding" />
     </ul>
 </template>
 
@@ -41,18 +42,20 @@ button {
     margin-right: 1rem;
     height: 2rem;
     width: 2rem;
-	background: transparent;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	color: orangered;
-	font-weight: bold;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: orangered;
+    font-weight: bold;
 }
+
 .bottom-padding {
-	height: 100px;
+    height: 100px;
 }
+
 ul {
-	max-height: 40vh;
-	overflow-y: scroll;
+    max-height: 40vh;
+    overflow-y: scroll;
 }
 </style>

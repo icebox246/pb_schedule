@@ -1,6 +1,6 @@
 <script>
 import ScheduleClassItem from './ScheduleClassItem.vue'
-import {getSubjectById} from '../global.js';
+import { getSubjectById } from '../global.js';
 
 export default {
     components: [ScheduleClassItem],
@@ -22,6 +22,6 @@ export default {
 
 <style scoped>
 div {
-	flex:1;
+    flex: 1;
 }
 </style>

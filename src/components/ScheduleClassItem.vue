@@ -1,6 +1,6 @@
 <script>
-import {getFriendlyTimeEnd,getFriendlyTimeBegin,getFriendlyKindName} from '../constants.js';
-import {getSubjectById, getTeacherById, getRoomById} from '../global.js';
+import { getFriendlyTimeEnd, getFriendlyTimeBegin, getFriendlyKindName } from '../constants.js';
+import { getSubjectById, getTeacherById, getRoomById } from '../global.js';
 export default {
     props: ['item'],
     methods: {
@@ -29,31 +29,32 @@ export default {
 </script>
 
 <template>
-    <div :class="`container ${item.kind} ${item.wm == 1 ? 'biweekly1' : (item.wm == 2 ? 'biweekly2' : '')}`" ref="container">
+    <div :class="`container ${item.kind} ${item.wm == 1 ? 'biweekly1' : (item.wm == 2 ? 'biweekly2' : '')}`"
+        ref="container">
         <p><b>{{ begin }} - {{ end }}</b></p>
-		<p>
-			<span>{{ subject.short }} ({{ kind }})</span> <span>
-				<b>{{ room }}</b> - {{ teacher.title }} {{ teacher.nsh }} {{ teacher.surname }} 
-			</span>
-		</p>
+        <p>
+            <span>{{ subject.short }} ({{ kind }})</span> <span>
+                <b>{{ room }}</b> - {{ teacher.title }} {{ teacher.nsh }} {{ teacher.surname }}
+            </span>
+        </p>
     </div>
 </template>
 
 <style scoped>
 .container {
-	--biweekly-bg: none;
-	--type-color: dimgray;
-    background-image: var(--biweekly-bg), linear-gradient(var(--type-color),var(--type-color));
+    --biweekly-bg: none;
+    --type-color: dimgray;
+    background-image: var(--biweekly-bg), linear-gradient(var(--type-color), var(--type-color));
     color: white;
-    margin:3px;
+    margin: 3px;
     border-radius: 3px;
     padding: 3px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 p {
     overflow: ellipsis;
-	font-size: 0.85;
+    font-size: 0.85;
 }
 
 .container.W {
@@ -65,8 +66,8 @@ p {
 }
 
 .container.Ćw {
-   --type-color: LightGoldenRodYellow; 
-   color: black;
+    --type-color: LightGoldenRodYellow;
+    color: black;
 }
 
 .container.Ćw * {
@@ -74,8 +75,8 @@ p {
 }
 
 .container.Ps {
-   --type-color: PaleTurquoise; 
-   color: black;
+    --type-color: PaleTurquoise;
+    color: black;
 }
 
 .container.Ps * {
@@ -83,8 +84,8 @@ p {
 }
 
 .container.Wf {
-   --type-color: pink; 
-   color: black;
+    --type-color: pink;
+    color: black;
 }
 
 .container.Wf * {
@@ -92,8 +93,8 @@ p {
 }
 
 .container.L {
-   --type-color: LightSalmon; 
-   color: black;
+    --type-color: LightSalmon;
+    color: black;
 }
 
 .container.L * {
@@ -101,8 +102,8 @@ p {
 }
 
 .container.J {
-   --type-color: PeachPuff; 
-   color: black;
+    --type-color: PeachPuff;
+    color: black;
 }
 
 .container.J * {
@@ -110,10 +111,10 @@ p {
 }
 
 .container.biweekly1 {
-	--biweekly-bg: repeating-linear-gradient(-45deg, rgba(200,200,200, 0.5), rgba(200,200,200, 0.5) 20px, transparent 20px, transparent 40px);
+    --biweekly-bg: repeating-linear-gradient(-45deg, rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.5) 20px, transparent 20px, transparent 40px);
 }
 
 .container.biweekly2 {
-	--biweekly-bg: repeating-linear-gradient(45deg, rgba(200,200,200, 0.5), rgba(200,200,200, 0.5) 20px, transparent 20px, transparent 40px);
+    --biweekly-bg: repeating-linear-gradient(45deg, rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.5) 20px, transparent 20px, transparent 40px);
 }
 </style>

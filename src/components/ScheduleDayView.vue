@@ -2,7 +2,7 @@
 import ScheduleClassItem from './ScheduleClassItem.vue'
 
 export default {
-    components: {ScheduleClassItem},
+    components: { ScheduleClassItem },
     props: ['classes'],
     methods: {}
 }
@@ -19,13 +19,11 @@ export default {
     display: grid;
     grid-template-rows: repeat(14, calc(100% / 14));
     height: 100%;
-    background: repeating-linear-gradient(  
-        transparent 0%,
-        transparent calc(100% / 14 - 1px),
-        gray calc(100% / 14 - 1px),
-        gray calc(100% / 14 - 1px),
-        gray calc(100% / 14),
-        transparent calc(100% / 14)
-    );
+    background: repeating-linear-gradient(transparent 0%,
+            transparent calc(100% / 14 - 1px),
+            gray calc(100% / 14 - 1px),
+            gray calc(100% / 14 - 1px),
+            gray calc(100% / 14),
+            transparent calc(100% / 14));
 }
 </style>

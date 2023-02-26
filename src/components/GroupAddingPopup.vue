@@ -1,14 +1,14 @@
 <script>
 import SubjectSelection from './SubjectSelection.vue';
 import KindSelection from './KindSelection.vue';
-import {getSubjectById, addGroup} from '../global.js';
+import { getSubjectById, addGroup } from '../global.js';
 
 export default {
     emits: ["finished"],
-	components: {
-	    SubjectSelection,
-	    KindSelection,
-	},
+    components: {
+        SubjectSelection,
+        KindSelection,
+    },
     data() {
         return {
             subjectId: 1,
@@ -45,9 +45,8 @@ export default {
 </template>
 
 <style scoped>
-
 .horz {
-    display:flex;
+    display: flex;
 }
 
 .group {
@@ -60,5 +59,4 @@ button {
     width: 2rem;
     height: 2rem;
 }
-
 </style>

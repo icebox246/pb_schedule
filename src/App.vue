@@ -5,7 +5,7 @@ import SemesterSelection from './components/SemesterSelection.vue'
 import GroupList from './components/GroupList.vue'
 import ScheduleView from './components/ScheduleView.vue'
 
-import {scheduleStore, refetchData, exportSettingsToClipboard, importSettingsByPrompt} from './global';
+import { scheduleStore, refetchData, exportSettingsToClipboard, importSettingsByPrompt } from './global';
 
 export default {
     components: {
@@ -22,13 +22,13 @@ export default {
     },
     computed: {
         filteredClasses() { return scheduleStore.filteredClasses; },
-		lastUpdate() { return scheduleStore.lastUpdate },
-		hasData() { return !!scheduleStore.data.classes },
+        lastUpdate() { return scheduleStore.lastUpdate },
+        hasData() { return !!scheduleStore.data.classes },
     },
     methods: {
-		refetchData,
-		exportSettingsToClipboard,
-		importSettingsByPrompt
+        refetchData,
+        exportSettingsToClipboard,
+        importSettingsByPrompt
     },
 }
 </script>
@@ -37,19 +37,19 @@ export default {
     <main v-if="hasData">
         <nav @click="showLeftPanel = !showLeftPanel">schedule</nav>
         <div :class="`left-panel ${showLeftPanel ? 'show' : ''}`">
-			<h3>institution & semester:</h3>
+            <h3>institution & semester:</h3>
             <InstitutionSelection />
             <SemesterSelection />
-			<h3>subjects:</h3>
+            <h3>subjects:</h3>
             <GroupList />
-			<h4>data management:</h4>
-			<div>
-				<button class="refresh" @click="refetchData">refresh data</button>
-				<span>last update: {{ lastUpdate }}</span>
-			</div>
-			<button class="export" @click="exportSettingsToClipboard">export settings</button>
-			<button class="import" @click="importSettingsByPrompt">import settings</button>
-			<h4>add subject:</h4>
+            <h4>data management:</h4>
+            <div>
+                <button class="refresh" @click="refetchData">refresh data</button>
+                <span>last update: {{ lastUpdate }}</span>
+            </div>
+            <button class="export" @click="exportSettingsToClipboard">export settings</button>
+            <button class="import" @click="importSettingsByPrompt">import settings</button>
+            <h4>add subject:</h4>
             <GroupAddingPopup />
         </div>
 
@@ -63,15 +63,15 @@ export default {
 </template>
 
 <style scoped>
-
 h1 {
     font-size: 3em;
-    text-align:center;
+    text-align: center;
     padding-top: 2em;
 }
+
 h2 {
     font-size: 2em;
-    text-align:center;
+    text-align: center;
 }
 
 nav {
@@ -84,9 +84,10 @@ nav {
     top: 0;
 }
 
-h3, h4 {
-	margin-top: 1rem;
-	margin-bottom: 0.5rem;
+h3,
+h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 main {
@@ -94,7 +95,7 @@ main {
 }
 
 .left-panel {
-    position: absolute;    
+    position: absolute;
     transform: translateX(-100%);
     background: var(--bg-color);
     transition: transform 100ms ease;
@@ -106,25 +107,24 @@ main {
 }
 
 button {
-	padding: 0.5rem 1rem;
-	color: black;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	border-radius: 3px;
-	margin: 3px;
+    padding: 0.5rem 1rem;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 3px;
 }
 
 .refresh {
-	background: aquamarine;
+    background: aquamarine;
 }
 
 .export {
-	background: orange;
+    background: orange;
 }
 
 .import {
-	background: DodgerBlue;
+    background: DodgerBlue;
 }
-
 </style>

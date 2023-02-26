@@ -18,7 +18,7 @@ const networkOnly = async (event) => {
     event.respondWith(
         fetch(event.request)
             .then(r => r)
-            .catch(() => new Response('failed to fetch', {status: 400})));
+            .catch(() => new Response('failed to fetch', { status: 400 })));
 };
 
 
