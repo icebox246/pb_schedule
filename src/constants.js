@@ -24,7 +24,7 @@ export function getFriendlyTimeEnd(t) {
     return friendlyTimeNames[t].end;
 }
 
-const friendlyKindNames = {
+export const friendlyKindNames = {
     'W': 'wykład',
     'Ćw': 'ćwiczenia',
     'Ps': 'p. spec.',  // 'pracownia specjalistyczna',
@@ -32,6 +32,7 @@ const friendlyKindNames = {
     'L': 'laboratorium',
     'S': 'seminarium',
     'Wf': '?Wf?',
+    'J': 'ćw. język.',
 }
 
 export function getFriendlyKindName(k) {

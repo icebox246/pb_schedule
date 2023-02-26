@@ -91,6 +91,24 @@ p {
     color: black;
 }
 
+.container.L {
+   --type-color: LightSalmon; 
+   color: black;
+}
+
+.container.L * {
+    color: black;
+}
+
+.container.J {
+   --type-color: PeachPuff; 
+   color: black;
+}
+
+.container.J * {
+    color: black;
+}
+
 .container.biweekly1 {
 	--biweekly-bg: repeating-linear-gradient(-45deg, rgba(200,200,200, 0.5), rgba(200,200,200, 0.5) 20px, transparent 20px, transparent 40px);
 }

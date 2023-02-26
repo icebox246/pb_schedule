@@ -1,9 +1,10 @@
 <script>
+import { friendlyKindNames } from '../constants.js'
 export default {
     emits: ["change"],
     data() {
         return {
-            kinds: ["W", "Ćw", "Ps", "P", "L", "S"],
+            kinds: Object.keys(friendlyKindNames ),
             currentValue: "W"
         }
     },
