@@ -41,7 +41,8 @@ export function refilterClasses() {
             c =>
             (c.rid && c.sid && c.tid &&
                 c.iid == scheduleStore.institution &&
-                c.sem == scheduleStore.semester));
+                (c.sem == scheduleStore.semester
+                    || c.sem == 0)));
 
     const deduped =
         [...new Set(acc.map(c => JSON.stringify(c)))].map(c => JSON.parse(c));
