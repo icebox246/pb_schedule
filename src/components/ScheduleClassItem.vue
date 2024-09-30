@@ -50,6 +50,7 @@ export default {
     border-radius: 3px;
     padding: 3px;
     overflow: hidden;
+    grid-column: 1 / 3;
 }
 
 p {
@@ -112,9 +113,11 @@ p {
 
 .container.biweekly1 {
     --biweekly-bg: repeating-linear-gradient(-45deg, rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.5) 20px, transparent 20px, transparent 40px);
+    grid-column: 1;
 }
 
 .container.biweekly2 {
     --biweekly-bg: repeating-linear-gradient(45deg, rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.5) 20px, transparent 20px, transparent 40px);
+    grid-column: 2;
 }
 </style>
